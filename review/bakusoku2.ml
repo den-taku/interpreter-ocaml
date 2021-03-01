@@ -40,3 +40,5 @@ let sum ({num=n1;den=d1},{num=n2;den=d2}) =
   let gcd' = gcd (new'num, new'den) in
   {num = new'num / gcd'; den = new'den / gcd'}
 ;;
+
+let p = {origin with y = 3};;
