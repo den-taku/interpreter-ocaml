@@ -1,10 +1,10 @@
-# dune build
+# dune exec miniml
 # OCAMLPARAM: unset
-# Workspace root: /Users/tatanbo/dentaku/interpreter-ocaml
-$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/tv/2b12tjpx3wl1bsd9r7vd6y9h0000gn/T/dune6de0d0.output 2> /dev/null
+# Workspace root: /Users/tatanbo/dentaku/interpreter-ocaml/rep
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/tv/2b12tjpx3wl1bsd9r7vd6y9h0000gn/T/dunedd4ff8.output 2> /dev/null
 # Auto-detected concurrency: 4
 # disable binary cache
-$ /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -config > /var/folders/tv/2b12tjpx3wl1bsd9r7vd6y9h0000gn/T/dunea113da.output
+$ /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -config > /var/folders/tv/2b12tjpx3wl1bsd9r7vd6y9h0000gn/T/dune848b43.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -23,15 +23,15 @@ $ /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -config > /var/folders/tv/2b12tjpx3
 #  ; env =
 #      map
 #        { "INSIDE_DUNE" :
-#            "/Users/tatanbo/dentaku/interpreter-ocaml/_build/default"
+#            "/Users/tatanbo/dentaku/interpreter-ocaml/rep/_build/default"
 #        ; "MANPATH" :
-#            "/Users/tatanbo/dentaku/interpreter-ocaml/_build/install/default/bin"
+#            "/Users/tatanbo/dentaku/interpreter-ocaml/rep/_build/install/default/bin"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/Users/tatanbo/dentaku/interpreter-ocaml/_build/install/default/lib"
+#            "/Users/tatanbo/dentaku/interpreter-ocaml/rep/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/Users/tatanbo/dentaku/interpreter-ocaml/_build/install/default/lib"
+#            "/Users/tatanbo/dentaku/interpreter-ocaml/rep/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/Users/tatanbo/dentaku/interpreter-ocaml/_build/install/default/lib/toplevel"
+#            "/Users/tatanbo/dentaku/interpreter-ocaml/rep/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
@@ -106,41 +106,4 @@ $ /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -config > /var/folders/tv/2b12tjpx3
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -o src/.miniml.objs/byte/miniml.cmo -c -impl src/miniml.ml-gen)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/cui.ml) > _build/default/src/.miniml.objs/cui.ml.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -intf src/environment.mli) > _build/default/src/.miniml.objs/environment.mli.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/environment.ml) > _build/default/src/.miniml.objs/environment.ml.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/eval.ml) > _build/default/src/.miniml.objs/eval.ml.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -intf src/lexer.mli) > _build/default/src/.miniml.objs/lexer.mli.d
-> File "src/lexer.mli", line 1, characters 0-1:
-> 1 | {
->     ^
-> Error: Syntax error
-[2]
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -intf src/mySet.mli) > _build/default/src/.miniml.objs/mySet.mli.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/mySet.ml) > _build/default/src/.miniml.objs/mySet.ml.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/menhir src/parser.mly --base src/parser --infer-write-query src/parser__mock.ml.mock)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/syntax.ml) > _build/default/src/.miniml.objs/syntax.ml.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/typing.ml) > _build/default/src/.miniml.objs/typing.ml.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl main.ml) > _build/default/.main.eobjs/main.ml.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/parser__mock.ml.mock) > _build/default/src/.miniml.objs/parser__mock.ml.mock.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__MySet.cmi -c -intf src/mySet.mli)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Syntax.cmo -c -impl src/syntax.ml)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Typing.cmo -c -impl src/typing.ml)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__MySet.cmo -c -impl src/mySet.ml)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Environment.cmi -c -intf src/environment.mli)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -open Miniml -short-paths -i -impl src/parser__mock.ml.mock) > _build/default/src/parser__mock.mli.inferred
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__Typing.cmx -c -impl src/typing.ml)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__Syntax.cmx -c -impl src/syntax.ml)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml-gen -no-alias-deps -opaque -o src/.miniml.objs/native/miniml.cmx -c -impl src/miniml.ml-gen)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__MySet.cmx -c -impl src/mySet.ml)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/menhir src/parser.mly --base src/parser --infer-read-reply src/parser__mock.mli.inferred)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Environment.cmo -c -impl src/environment.ml)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Eval.cmo -c -impl src/eval.ml)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -intf src/parser.mli) > _build/default/src/.miniml.objs/parser.mli.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/parser.ml) > _build/default/src/.miniml.objs/parser.ml.d
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Parser.cmi -c -intf src/parser.mli)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__Environment.cmx -c -impl src/environment.ml)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__Eval.cmx -c -impl src/eval.ml)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Parser.cmo -c -impl src/parser.ml)
-$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__Parser.cmx -c -impl src/parser.ml)
+# Workspace root: /Users/tatanbo/dentaku/interpreter-ocaml/rep
