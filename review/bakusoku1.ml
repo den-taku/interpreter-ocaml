@@ -17,3 +17,8 @@ let rec squaresum n =
   else square n + squaresum (n-1)
 ;;
 
+let rec gcd (x,y) = 
+  if x < y then gcd(y-x,x) 
+  else if x > y then gcd(x-y,y)
+  else x
+;;
