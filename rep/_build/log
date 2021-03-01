@@ -1,0 +1,146 @@
+# dune build
+# OCAMLPARAM: unset
+# Workspace root: /Users/tatanbo/dentaku/interpreter-ocaml
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/tv/2b12tjpx3wl1bsd9r7vd6y9h0000gn/T/dune6de0d0.output 2> /dev/null
+# Auto-detected concurrency: 4
+# disable binary cache
+$ /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -config > /var/folders/tv/2b12tjpx3wl1bsd9r7vd6y9h0000gn/T/dunea113da.output
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dyn
+#  ; merlin = true
+#  ; for_host = None
+#  ; fdo_target_exe = None
+#  ; build_dir = "default"
+#  ; toplevel_path = Some External "/Users/tatanbo/.opam/4.11.1/lib/toplevel"
+#  ; ocaml_bin = External "/Users/tatanbo/.opam/4.11.1/bin"
+#  ; ocaml = Ok External "/Users/tatanbo/.opam/4.11.1/bin/ocaml"
+#  ; ocamlc = External "/Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt"
+#  ; ocamlopt = Ok External "/Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt"
+#  ; ocamldep = Ok External "/Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt"
+#  ; ocamlmklib = Ok External "/Users/tatanbo/.opam/4.11.1/bin/ocamlmklib.opt"
+#  ; env =
+#      map
+#        { "INSIDE_DUNE" :
+#            "/Users/tatanbo/dentaku/interpreter-ocaml/_build/default"
+#        ; "MANPATH" :
+#            "/Users/tatanbo/dentaku/interpreter-ocaml/_build/install/default/bin"
+#        ; "OCAMLFIND_IGNORE_DUPS_IN" :
+#            "/Users/tatanbo/dentaku/interpreter-ocaml/_build/install/default/lib"
+#        ; "OCAMLPATH" :
+#            "/Users/tatanbo/dentaku/interpreter-ocaml/_build/install/default/lib"
+#        ; "OCAMLTOP_INCLUDE_PATH" :
+#            "/Users/tatanbo/dentaku/interpreter-ocaml/_build/install/default/lib/toplevel"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; findlib_path = [ External "/Users/tatanbo/.opam/4.11.1/lib" ]
+#  ; arch_sixtyfour = true
+#  ; natdynlink_supported = true
+#  ; supports_shared_libraries = true
+#  ; ocaml_config =
+#      { version = "4.11.1"
+#      ; standard_library_default = "/Users/tatanbo/.opam/4.11.1/lib/ocaml"
+#      ; standard_library = "/Users/tatanbo/.opam/4.11.1/lib/ocaml"
+#      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
+#      ; ccomp_type = "cc"
+#      ; c_compiler = "cc"
+#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
+#      ; ocamlopt_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
+#      ; bytecomp_c_compiler =
+#          [ "cc"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ; "-D_REENTRANT"
+#          ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; native_c_compiler =
+#          [ "cc"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ; "-D_REENTRANT"
+#          ]
+#      ; native_c_libraries = [ "-lm" ]
+#      ; cc_profile = []
+#      ; architecture = "amd64"
+#      ; model = "default"
+#      ; int_size = 63
+#      ; word_size = 64
+#      ; system = "macosx"
+#      ; asm = [ "clang"; "-arch"; "x86_64"; "-Wno-trigraphs"; "-c" ]
+#      ; asm_cfi_supported = true
+#      ; with_frame_pointers = false
+#      ; ext_exe = ""
+#      ; ext_obj = ".o"
+#      ; ext_asm = ".s"
+#      ; ext_lib = ".a"
+#      ; ext_dll = ".so"
+#      ; os_type = "Unix"
+#      ; default_executable_name = "a.out"
+#      ; systhread_supported = true
+#      ; host = "x86_64-apple-darwin17.7.0"
+#      ; target = "x86_64-apple-darwin17.7.0"
+#      ; profiling = false
+#      ; flambda = false
+#      ; spacetime = false
+#      ; safe_string = true
+#      ; exec_magic_number = "Caml1999X028"
+#      ; cmi_magic_number = "Caml1999I028"
+#      ; cmo_magic_number = "Caml1999O028"
+#      ; cma_magic_number = "Caml1999A028"
+#      ; cmx_magic_number = "Caml1999Y028"
+#      ; cmxa_magic_number = "Caml1999Z028"
+#      ; ast_impl_magic_number = "Caml1999M028"
+#      ; ast_intf_magic_number = "Caml1999N028"
+#      ; cmxs_magic_number = "Caml1999D028"
+#      ; cmt_magic_number = "Caml1999T028"
+#      ; natdynlink_supported = true
+#      ; supports_shared_libraries = true
+#      ; windows_unicode = false
+#      }
+#  }
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -o src/.miniml.objs/byte/miniml.cmo -c -impl src/miniml.ml-gen)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/cui.ml) > _build/default/src/.miniml.objs/cui.ml.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -intf src/environment.mli) > _build/default/src/.miniml.objs/environment.mli.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/environment.ml) > _build/default/src/.miniml.objs/environment.ml.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/eval.ml) > _build/default/src/.miniml.objs/eval.ml.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -intf src/lexer.mli) > _build/default/src/.miniml.objs/lexer.mli.d
+> File "src/lexer.mli", line 1, characters 0-1:
+> 1 | {
+>     ^
+> Error: Syntax error
+[2]
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -intf src/mySet.mli) > _build/default/src/.miniml.objs/mySet.mli.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/mySet.ml) > _build/default/src/.miniml.objs/mySet.ml.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/menhir src/parser.mly --base src/parser --infer-write-query src/parser__mock.ml.mock)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/syntax.ml) > _build/default/src/.miniml.objs/syntax.ml.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/typing.ml) > _build/default/src/.miniml.objs/typing.ml.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl main.ml) > _build/default/.main.eobjs/main.ml.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/parser__mock.ml.mock) > _build/default/src/.miniml.objs/parser__mock.ml.mock.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__MySet.cmi -c -intf src/mySet.mli)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Syntax.cmo -c -impl src/syntax.ml)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Typing.cmo -c -impl src/typing.ml)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__MySet.cmo -c -impl src/mySet.ml)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Environment.cmi -c -intf src/environment.mli)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -open Miniml -short-paths -i -impl src/parser__mock.ml.mock) > _build/default/src/parser__mock.mli.inferred
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__Typing.cmx -c -impl src/typing.ml)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__Syntax.cmx -c -impl src/syntax.ml)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml-gen -no-alias-deps -opaque -o src/.miniml.objs/native/miniml.cmx -c -impl src/miniml.ml-gen)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__MySet.cmx -c -impl src/mySet.ml)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/menhir src/parser.mly --base src/parser --infer-read-reply src/parser__mock.mli.inferred)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Environment.cmo -c -impl src/environment.ml)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Eval.cmo -c -impl src/eval.ml)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -intf src/parser.mli) > _build/default/src/.miniml.objs/parser.mli.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamldep.opt -modules -impl src/parser.ml) > _build/default/src/.miniml.objs/parser.ml.d
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Parser.cmi -c -intf src/parser.mli)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__Environment.cmx -c -impl src/environment.ml)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__Eval.cmx -c -impl src/eval.ml)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -bin-annot -I src/.miniml.objs/byte -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/byte/miniml__Parser.cmo -c -impl src/parser.ml)
+$ (cd _build/default && /Users/tatanbo/.opam/4.11.1/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -w -39 -g -I src/.miniml.objs/byte -I src/.miniml.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Miniml -o src/.miniml.objs/native/miniml__Parser.cmx -c -impl src/parser.ml)
