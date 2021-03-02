@@ -15,4 +15,3 @@ let is_positive' n =
       print_string " isn't positive"
     end
 ;;
-
