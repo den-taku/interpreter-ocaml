@@ -3,6 +3,7 @@ let rec add n1 n2 =
     n2
   else
     add (Nat.prev n1) (Nat.succ n2)
+;;
 
 (* Tests *)
 let () =
@@ -11,5 +12,7 @@ let () =
   assert(repr zero = 0);
   assert(repr (add zero zero) = 0);
   assert(repr (prev(succ zero)) = 0);
-  assert(repr (add (succ (succ zero)) (succ zero)) = 3)
+  assert(repr (add (succ (succ zero)) (succ zero)) = 3);
+  print_int (repr (add (succ (succ zero)) (succ zero)));
+  print_string "\n"
 ;; 
