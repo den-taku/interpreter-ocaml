@@ -1,1 +1,6 @@
-_build/*
+/_build/*
+_opam
+_build
+*.swp
+
+_build/log
