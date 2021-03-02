@@ -68,3 +68,19 @@ let rec string_of_int_tree t =
 ;;
 
 string_of_int_tree t6;;
+
+let rec find cmp t n =
+  match t with
+   Lf -> false
+  |Br {left=l;value=v;right=r} ->
+    if cmp n v = 0 then true
+    else if cmp n v < 0 then find cmp l n
+    else (* n > v *) find cmp r n
+;;
+
+let rec min t = 
+  match t with
+   Lf -> invalid_arg "Input can't be a leaf!"
+  |Br {left=Lf;value=v;} -> v
+  |Br {left=l} -> min l
+;;
