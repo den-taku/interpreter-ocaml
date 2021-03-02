@@ -4,3 +4,4 @@ _build
 *.swp
 
 _build/log
+.merlin
