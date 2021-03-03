@@ -44,6 +44,13 @@ let rec eval_exp env = function
        BoolV true -> eval_exp env exp2
      | BoolV false -> eval_exp env exp3
      | _ -> err ("Test expression must be boolean: if"))
+  | LetExp (id, exp1, exp2) ->
+    (* 現在の環境でexp1を評価 *)
+    let value = eval_exp env exp1 in
+    (* exp1の評価結果をidの値として環境に追加してexp2を評価 *)
+    eval_exp (Environment.extend id value env) exp2
 
 let eval_decl env = function
     Exp e -> let v = eval_exp env e in ("-", env, v)
+  | Decl (id, e) ->
+    let v = eval_exp env e in (id, Environment.extend id v env, v)
