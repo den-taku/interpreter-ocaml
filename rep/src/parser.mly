@@ -56,7 +56,7 @@ FunExpr :
     FUN x=ID RARROW e=Expr { FunExp (x, e) }
 
 LetRecExpr : 
-    LET REC f=ID EQ FUN x=ID RARROW e1=Expr IN e2=Expr { LetRecExp (f, x, e1, e2) }
+    LET REC f=ID EQ FUN p=ID RARROW e1=Expr IN e2=Expr { LetRecExp (f, p, e1, e2) }
 
 AppExpr :
     e1=AppExpr e2=AExpr { AppExp (e1, e2) }

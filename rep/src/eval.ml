@@ -74,8 +74,4 @@ let eval_decl env = function
     let dummyenv = ref Environment.empty in
     let newenv = Environment.extend id (ProcV (para, e, dummyenv)) env in
     dummyenv := newenv;
-    let v = eval_exp newenv e in (id, newenv, v)
-
-
-
-    (* let c = eval_exp (Environment.extend f e !env) e in (f, Environment.extend id c env, c) *)
+    (id, newenv, ProcV (para, e, dummyenv))
