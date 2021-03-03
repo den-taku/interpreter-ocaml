@@ -7,6 +7,7 @@ open Syntax
 %token IF THEN ELSE TRUE FALSE
 %token LET IN EQ
 %token RARROW FUN
+%token REC
 
 %token <int> INTV
 %token <Syntax.id> ID
@@ -18,6 +19,7 @@ open Syntax
 toplevel :
     e=Expr SEMISEMI { Exp e }
   | LET x=ID EQ e=Expr SEMISEMI { Decl (x, e) }
+  | LET REC f=ID EQ FUN x=ID RARROW e=Expr SEMISEMI { RecDecl (f, x, e) }
 
 Expr :
     e=IfExpr { e }
@@ -25,6 +27,7 @@ Expr :
   | e=ANDExpr { e } 
   | e=FunExpr { e } 
   | e=AppExpr { e }
+  | e=LetRecExpr { e }
 
 LetExpr : 
     LET x=ID EQ e1=Expr IN e2=Expr { LetExp (x, e1, e2) }    
@@ -51,6 +54,9 @@ MExpr :
 
 FunExpr :
     FUN x=ID RARROW e=Expr { FunExp (x, e) }
+
+LetRecExpr : 
+    LET REC f=ID EQ FUN x=ID RARROW e1=Expr IN e2=Expr { LetRecExp (f, x, e1, e2) }
 
 AppExpr :
     e1=AppExpr e2=AExpr { AppExp (e1, e2) }

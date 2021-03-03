@@ -12,10 +12,12 @@ type exp =
   | LetExp of id * exp * exp
   | FunExp of id * exp
   | AppExp of exp * exp
+  | LetRecExp of id * id * exp * exp
 
 type program =
     Exp of exp
   | Decl of id * exp
+  | RecDecl of id * id * exp
 
 type tyvar = int
 type ty =

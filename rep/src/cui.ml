@@ -14,9 +14,11 @@ let rec read_eval_print env =
     Eval.Error e -> (print_string e;
                      print_newline();
                      read_eval_print env)
+                     (*
   | _ -> (print_string "Fatal error";
           print_newline();
           read_eval_print env)
+          *)
 let initial_env =
   Environment.extend "i" (IntV 1)
     (Environment.extend "ii" (IntV 2)
