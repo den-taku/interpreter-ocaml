@@ -19,23 +19,13 @@ toplevel :
 Expr :
     e=IfExpr { e }
   | e=ANDExpr { e } 
-  (* | e=ORExpr {e} *)
 
 ANDExpr : 
-    (* l=LTExpr AND r=LTExpr { BinOp (And, l, r)}  *)
-  | l=ANDExpr AND r=ORExpr { BinOp (And, l, r)}
-  (* | l=ORExpr AND r=ANDExpr { BinOp (And, l, r)} *)
-  (* | l=ORExpr AND r=ORExpr { BinOp (And, l, r)} *)
-  (* | l=ORExpr AND r=ORExpr { BinOp (And, l, r)} *)
+    l=ANDExpr AND r=ORExpr { BinOp (And, l, r)}
   | e=ORExpr { e }
 
 ORExpr : 
-    (* l=LTExpr OR r=LTExpr { BinOp (Or, l, r)} *)
-  (* | l=ANDExpr OR r=ANDExpr { BinOp (Or, l, r)} *)
-  (* | l=ANDExpr OR r=ORExpr { BinOp (Or, l, r)} *)
-  (* | l=ORExpr OR r=ANDExpr { BinOp (Or, l, r)} *)
-  | l=ORExpr OR r=AExpr { BinOp (Or, l, r)}
-  (* | e=ANDExpr { e } *)
+    l=ORExpr OR r=LTExpr { BinOp (Or, l, r)}
   | e=LTExpr { e } 
 
 LTExpr :
