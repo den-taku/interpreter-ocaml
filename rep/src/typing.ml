@@ -4,6 +4,8 @@ exception Error of string
 
 let err s = raise (Error s)
 
+type subst = (tyvar * ty) list
+
 (* Type environment *)
 type tyenv = ty Environment.t
 
@@ -50,3 +52,12 @@ let rec ty_exp tyenv = function
 let ty_decl tyenv = function
    Exp e -> ty_exp tyenv e
   |_ -> err ("Not Implemented!")
+
+let rec subst_type l t = 
+  match l, t with 
+   [], _ -> t
+  |_, TyInt -> TyInt
+  |_, TyBool -> TyBool
+  |(id, ty)::rest, TyVar n -> if n = id then ty else subst_type rest (TyVar n)
+  |(id, ty)::rest, TyFun (e1, e2) -> TyFun (subst_type ((id,ty)::rest) e1, subst_type ((id,ty)::rest) e2)
+  |(id, ty)::rest, TyList t -> TyList (subst_type ((id,ty)::rest) t)

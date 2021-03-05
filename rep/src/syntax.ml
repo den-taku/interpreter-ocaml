@@ -31,8 +31,6 @@ type ty =
   | TyFun of ty * ty
   | TyList of ty
 
-type subst = (tyvar * ty) list
-
 let string_of_number n =
   let c = char_of_int (97 + (n mod 26)) in
   escaped c
@@ -42,11 +40,13 @@ let pp_ty typ =
    TyInt -> print_string "int"
   |TyBool -> print_string "bool"
   |TyVar n -> print_string ("'" ^ string_of_number n)
+  |_ -> print_string "Not Implemented!"
 
 let string_of_type =
   function 
    TyInt -> "int"
   |TyBool -> "bool"
+  |_ -> "Not Implemented!"
 
 let frech_tyvar =
   let counter = ref 0 in
