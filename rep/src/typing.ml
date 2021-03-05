@@ -11,7 +11,18 @@ let ty_prim op ty1 ty2 = match op with
    Plus -> (match ty1, ty2 with
                 TyInt, TyInt -> TyInt
                | _ -> err ("Argument must be of interger: +"))
-  | _ -> err "Not Implemented!"
+  |Mult -> (match ty1, ty2 with
+                TyInt, TyInt -> TyInt
+               | _ -> err ("Argument must be of integer: *"))
+  |Lt -> (match ty1, ty2 with
+             TyInt, TyInt -> TyBool
+            | _ -> err ("Argument must be of integer: <"))
+  |And -> (match ty1, ty2 with
+             TyBool, TyBool -> TyBool
+            | _ -> err ("Argument must be of boolean: &&"))
+  |Or -> (match ty1, ty2 with
+             TyBool, TyBool -> TyBool
+            | _ -> err ("Argument must be of boolean: ||"))
 
 let rec ty_exp tyenv = function
    Var x ->
