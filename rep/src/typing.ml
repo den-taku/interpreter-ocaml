@@ -1,4 +1,5 @@
 open Syntax
+open MySet
 
 exception Error of string
 
@@ -58,6 +59,118 @@ let rec subst_type l t =
    [], _ -> t
   |_, TyInt -> TyInt
   |_, TyBool -> TyBool
-  |(id, ty)::rest, TyVar n -> if n = id then ty else subst_type rest (TyVar n)
+  |(id, ty)::rest, TyVar n -> if n = id then subst_type rest ty else subst_type rest (TyVar n)
   |(id, ty)::rest, TyFun (e1, e2) -> TyFun (subst_type ((id,ty)::rest) e1, subst_type ((id,ty)::rest) e2)
   |(id, ty)::rest, TyList t -> TyList (subst_type ((id,ty)::rest) t)
+
+let rec unify = function
+     [] -> []
+    |(ty1, ty2)::rest -> 
+        if ty1 = ty2 then unify rest 
+        else (match ty1, ty2 with
+             TyFun (e11, e12), TyFun(e21, e22) -> unify ((e11,e21)::(e12,e22)::rest)
+            |TyVar n, ty -> if member (TyVar n) (freevar_ty ty) then err "Type Error" 
+                           else (TyVar n, ty) :: unify rest
+            |t, TyVar n -> if member (TyVar n) (freevar_ty t) then err "Type Error"
+                           else (t, TyVar n) :: unify rest
+            |_, _ -> err "Type Error"
+        ) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

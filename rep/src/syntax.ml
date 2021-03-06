@@ -24,6 +24,7 @@ type program =
   | RecDecl of id * id * exp
 
 type tyvar = int
+
 type ty =
     TyInt
   | TyBool
@@ -59,6 +60,6 @@ let rec freevar_ty ty =
   match ty with
    TyInt -> MySet.empty
   |TyBool -> MySet.empty
-  |TyVar n -> insert n MySet.empty
+  |TyVar n -> insert (TyVar n) MySet.empty
   |TyFun (e1, e2) -> union (freevar_ty e1) (freevar_ty e2)
   | _ -> MySet.empty
