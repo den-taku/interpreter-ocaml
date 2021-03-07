@@ -66,7 +66,7 @@ let ty_prim op ty1 ty2 = match op with
 let rec ty_exp tyenv = function
    Var x ->
 (try ([], Environment.lookup x tyenv) with
-        Environment.Not_bound -> err ("variable not bound: " ^ x))
+        Environment.Not_bound -> err ("ty.variable not bound: " ^ x))
   |ILit _ -> ([], TyInt)
   |BLit _ -> ([], TyBool)
   |BinOp (op, exp1, exp2) ->
@@ -100,13 +100,27 @@ let rec ty_exp tyenv = function
     let eqs3 = [(ty1, TyFun (ty2, domty));] in
     let eqs = (eqs_of_subst s1) @ (eqs_of_subst s2) @ eqs3 in
     let s3 = unify eqs in (s3, subst_type s3 domty)
-  |_ -> err ("Not Implemented!: ty_exp")
+  |LetRecExp (id, para, exp1, exp2) -> 
+    let domty = TyVar (fresh_tyvar ()) in
+    let codty = TyVar (fresh_tyvar ()) in
+    let (s1, ty1) = ty_exp (Environment.extend id (TyFun (domty, codty)) (Environment.extend para domty tyenv)) exp1 in
+    let (s2, ty2) = ty_exp (Environment.extend id (TyFun (domty, ty1)) tyenv) exp2 in
+    let eqs = (eqs_of_subst s1) @ (eqs_of_subst s2) @ ([(ty1, codty);])in
+    let s3 = unify eqs in (s3, subst_type s3 ty2)
+  (* |_ -> err ("Not Implemented!: ty_exp") *)
 
 let ty_decl tyenv = function
-   Exp e -> ty_exp tyenv e
-  (* |Decl (id, e) -> 
-    let v = ty_exp tyenv e in (id, Environment.extend id v tyenv, v) *)
-  |_ -> err ("Not Implemented!: ty_decl")
+   Exp e -> 
+    let (_, ty) = ty_exp tyenv e in (tyenv, ty)
+  |Decl (id, e) -> 
+    let (s, v) = ty_exp tyenv e in 
+    let typ = subst_type s v in
+    (Environment.extend id typ tyenv, v)
+  |RecDecl (id, _, e) ->
+    let (s, v) = ty_exp tyenv e in
+    let typ = subst_type s v in
+    (Environment.extend id typ tyenv, v)
+  (* |_ -> err ("Not Implemented!: ty_decl") *)
 
 let subst_eqs s eqs =
     map (subst_type s) eqs

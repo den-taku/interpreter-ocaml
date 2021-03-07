@@ -36,12 +36,12 @@ let string_of_number n =
   let c = char_of_int (97 + (n mod 26)) in
   escaped c
 
-let rec pp_ty (s, typ) =
+let rec pp_ty typ =
   match typ with
    TyInt -> print_string "int"
   |TyBool -> print_string "bool"
   |TyVar n -> print_string ("'" ^ string_of_number n)
-  |TyFun (ty1, ty2) -> (pp_ty (s, ty1); print_string " -> "; pp_ty (s,ty2)) 
+  |TyFun (ty1, ty2) -> (pp_ty ty1; print_string " -> "; pp_ty ty2) 
   |_ -> print_string "Not Implemented!: pp_ty"
 
 let string_of_type =
