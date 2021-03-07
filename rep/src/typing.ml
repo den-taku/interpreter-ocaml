@@ -20,9 +20,9 @@ let rec unify = function
         if ty1 = ty2 then unify rest 
         else (match ty1, ty2 with
              TyFun (e11, e12), TyFun(e21, e22) -> unify ((e11,e21)::(e12,e22)::rest)
-            |TyVar n, ty -> if member (TyVar n) (freevar_ty ty) then err "Type Error" 
+            |TyVar n, ty -> if member (TyVar n) (freevar_ty ty) then err "Type Error: α∈FTC(τ)" 
                            else (n, ty) :: unify rest
-            |t, TyVar n -> if member (TyVar n) (freevar_ty t) then err "Type Error"
+            |t, TyVar n -> if member (TyVar n) (freevar_ty t) then err "Type Error: α∈FTC(τ)"
                            else (n, t) :: unify rest
             |_, _ -> err "Type Error"
         ) 
@@ -79,10 +79,10 @@ let rec ty_exp tyenv = function
     let (s1, ty1) = ty_exp tyenv exp1 in 
     let (s2, ty2) = ty_exp tyenv exp2 in 
     let (s3, ty3) = ty_exp tyenv exp3 in 
-    let new_ty = (TyVar (fresh_tyvar ())) in
-    let (eqs4, ty) = ([(ty1, TyBool); (ty2, new_ty); (ty3, new_ty)], new_ty) in
+    (* let new_ty = (TyVar (fresh_tyvar ())) in *)
+    let eqs4 = [(ty1, TyBool); (ty2, ty3);] in
     let eqs = (eqs_of_subst s1) @ (eqs_of_subst s2) @ (eqs_of_subst s3) @ eqs4 in
-    let s4 = unify eqs in (s4, subst_type s4 ty)
+    let s4 = unify eqs in (s4, subst_type s4 ty2)
   |LetExp (id, exp1, exp2) -> (*TODO: here*)
     let (s1, ty1) = ty_exp tyenv exp1 in
     let (s2, ty2) = ty_exp (Environment.extend id ty1 tyenv) exp2 in
