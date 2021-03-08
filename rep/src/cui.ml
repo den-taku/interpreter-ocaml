@@ -24,11 +24,9 @@ let rec read_eval_print env tyenv =
                       print_string e;
                       print_newline();
                      read_eval_print env tyenv)
-                     (*
   | _ -> (print_string "Fatal error";
           print_newline();
           read_eval_print env tyenv)
-*)
 
 let initial_env =
   Environment.extend "i" (IntV 1)
