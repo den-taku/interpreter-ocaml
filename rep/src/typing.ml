@@ -20,6 +20,7 @@ let rec unify = function
         if ty1 = ty2 then unify rest 
         else (match ty1, ty2 with
              TyFun (e11, e12), TyFun(e21, e22) -> unify ((e11,e21)::(e12,e22)::rest)
+            (* Maybe failed to implmenent: need substitute α to τ? *)
             |TyVar n, ty -> if member (TyVar n) (freevar_ty ty) then err "Type Error: α∈FTC(τ)" 
                            else (n, ty) :: unify rest
             |t, TyVar n -> if member (TyVar n) (freevar_ty t) then err "Type Error: α∈FTC(τ)"
